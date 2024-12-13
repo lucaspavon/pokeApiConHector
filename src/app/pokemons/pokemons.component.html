@@ -1,0 +1,45 @@
+<div class="figuritas-container">
+    @for (pokemon of pokemons; track $index) {
+        <div 
+          class="figurita" 
+          [class.flipped]="isFlipped[pokemon.name]" 
+          (click)="flipCard(pokemon)"
+        >
+          <!-- Cara frontal -->
+          <div class="front">
+            <h3>{{ capitalize(pokemon.name) }}</h3>
+            <img 
+              [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + (pokemon.url.split('/')[6]) + '.png'" 
+              alt="{{ pokemon.name }}">
+
+            <h3>{{'#' + obtenerNumeroPokedex($index) }}</h3>
+          </div>
+      
+          <!-- Cara trasera -->
+           @if (isFlipped[pokemon.name]) {
+               <div class="back">
+                 <p><strong>Tipo:</strong> {{ pokemonDetails[pokemon.name]?.type }}</p>
+                 <p><strong>Peso:</strong> {{ pokemonDetails[pokemon.name]?.weight }} kg</p>
+                 <p><strong>Habilidades:</strong></p>
+                 <ul>
+                     @for (ability of pokemonDetails[pokemon.name]?.abilities; track $index) {
+                         <li>{{ ability }}</li>
+                     }
+                 </ul>
+               </div>
+           }
+        </div>
+    }
+
+    <div class="container">
+        <button (click)="traerPersonas()"> TRAER PERSONAS </button>
+        @for (persona of personas; track $index) {
+            <div class="tarjetaPersonal">
+                <img src="https://avatars.githubusercontent.com/lucaspavon" width="45px" height="45px" alt="">
+                <h3>Nombre : {{persona.Nombre}}</h3>
+                <h3>Apellido : {{persona.Apellido}}</h3>
+                <h3>Email : {{persona.email}}</h3>
+            </div>
+        }
+    </div>
+  </div>

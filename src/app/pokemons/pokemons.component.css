@@ -1,0 +1,134 @@
+.figuritas-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem; /* Mayor espaciado entre las figuritas */
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 1rem; /* Añadido padding para asegurar que las figuritas no se peguen al borde de la pantalla */
+}
+
+.figurita {
+    width: 120px;
+    height: 180px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    perspective: 1500px; /* Aumentamos la perspectiva para hacer que el giro sea más pronunciado */
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d; /* Mantiene las 3D del giro */
+    transform-origin: right; /* Gira la figurita desde el borde derecho */
+}
+
+/* Estilos comunes para las caras de la figurita (frontal y trasera) */
+.front, .back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta la cara trasera al girar */
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.6s ease-in-out; /* Animación más suave y fluida */
+    border: 8px solid #c0c0c0;
+    border-top: 8px solid #999999;
+    border-left: 8px solid #999999;
+}
+
+/* Imagen dentro de la figurita */
+.figurita img {
+    max-width: 100px;
+    margin: 0 auto;
+    transition: transform 0.3s ease; /* Suaviza el efecto al crecer */
+}
+
+/* Efecto de hover: aumenta el tamaño de la figurita */
+.figurita:hover {
+    transform: scale(1.1); /* Aumenta el tamaño de la figurita */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Añade más sombra */
+
+}
+
+/* Imagen crece al hacer hover */
+.figurita:hover img {
+    transform: scale(2.5);
+    animation: vibrate 0.3s linear 0.3s;
+}
+
+/* Nombre del Pokémon */
+.figurita h3 {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    transition: transform 0.3s ease; /* Suaviza el efecto al crecer */
+}
+
+/* Estilos para la cara frontal y la cara trasera */
+.front {
+    transform: rotateY(0deg); /* Orientación inicial */
+}
+
+.back {
+    transform: rotateY(180deg); /* Orientación de la parte trasera */
+}
+
+/* Cuando la figurita está volteada */
+.figurita.flipped .front {
+    transform: rotateY(-180deg); /* Gira la parte frontal */
+}
+
+.figurita.flipped .back {
+    transform: rotateY(0deg); /* Muestra la parte trasera */
+}
+
+/* Cuando la figurita está volteada, mantenemos el tamaño */
+.figurita.flipped:hover {
+    transform: scale(1.1); /* Mantiene el tamaño aumentado de la figurita cuando está volteada */
+}
+
+.figurita.flipped:hover img,
+.figurita.flipped:hover h3 {
+    transform: scale(1.2); /* Mantiene el tamaño aumentado de la imagen y el nombre cuando está volteada */
+}
+
+@keyframes vibrate {
+    0% {
+        transform: scale(1.7) translateX(0);
+    }
+    25% {
+        transform: scale(1.7) translateX(-5px);
+    }
+    50% {
+        transform: scale(1.7) translateX(5px);
+    }
+    75% {
+        transform: scale(1.7) translateX(-5px);
+    }
+    100% {
+        transform: scale(1.7) translateX(0);
+    }
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem; /* Mayor espaciado entre las figuritas */
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 1rem; 
+}
+
+.tarjetaPersonal{
+    width: 120px;
+    height: 180px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    position: relative;
+}
