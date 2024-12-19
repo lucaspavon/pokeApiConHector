@@ -1,0 +1,25 @@
+<div class="contenedorGeneral">
+    <input class="botonTraerPersonas" type="text" [(ngModel)]="filtroNombre">
+    <button class="botonTraerPersonas" (click)="traerPersonas()"> TRAER PERSONAS </button>
+    <div class="container">
+        <table class="container2">
+            <thead style="width: 100%;">
+                <tr>
+                    <th class="th" style="width: 30%; font-size: 16px; font-weight: bold;">Nombre</th>
+                    <th class="th" style="width: 30%; font-size: 16px; font-weight: bold;">Apellido</th>
+                    <th class="th" style="width: 40%; font-size: 16px; font-weight: bold;">Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            @for (persona of personas; track $index) {
+                    <tr >
+                        <td class="filaPersonas">{{persona.Nombre}}</td>
+                        <td class="filaPersonas">{{persona.Apellido}}</td>
+                        <td class="filaPersonas">{{persona.email}}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+  </div>

@@ -19,7 +19,7 @@ export class PokeapiService {
     return this.http.get(`${this.apiUrl}/${nombre}`);
   }
 
-  getPersonas(): Observable<any>{
-    return this.http.get('https://retoolapi.dev/dWnc0l/usuarios');
+  getPersonas(nombre : string): Observable<any>{
+    return this.http.get('https://retoolapi.dev/dWnc0l/usuarios' + '?Nombre=' + nombre);
   }
 }

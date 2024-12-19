@@ -1,14 +1,15 @@
 import { Component, HostListener } from '@angular/core';
 import { PokeapiService } from '../services/pokeapi.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-pokemons',
+  selector: 'app-personas',
   standalone: true,
-  imports: [],
-  templateUrl: './pokemons.component.html',
-  styleUrl: './pokemons.component.css'
+  imports: [FormsModule],
+  templateUrl: './personas.component.html',
+  styleUrl: './personas.component.css'
 })
-export class PokemonsComponent {
+export class PersonasComponent {
   pokemons: any[] = [];
   isFlipped: { [key: string]: boolean } = {};
   pokemonDetails: { [key: string]: any } = {};
@@ -16,6 +17,7 @@ export class PokemonsComponent {
   limit: number = 50; // Cuántos Pokémon cargar por solicitud
   offset: number = 0;
   personas: any[] = [];
+  filtroNombre : string = ''
 
   constructor(private pokemonService: PokeapiService) {}
 
@@ -85,7 +87,7 @@ export class PokemonsComponent {
   }
 
   traerPersonas(){
-    this.pokemonService.getPersonas('').subscribe(value => {
+    this.pokemonService.getPersonas(this.filtroNombre).subscribe(value => {
       console.log(value)
       this.personas = value
     })

@@ -1,0 +1,32 @@
+.contenedorGeneral{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.botonTraerPersonas{
+    margin-top: 10px;
+}
+
+.container{
+    width: 75%;
+    border: 1px solid black;
+    margin-block: 10px;
+}
+
+
+.container2{
+    width: 100%;
+    border: 1px solid black;
+}
+
+.th{
+    border-bottom: 2px solid black;
+    padding: 4px;
+}
+
+.filaPersonas{
+    border: 1px dashed rgba(0, 0, 0, 0.753);
+    padding: 4px;
+}
